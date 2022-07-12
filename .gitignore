@@ -1,0 +1,5 @@
+env
+cred.py
+creds.py
+db.sqlite3
+**/__pycache__

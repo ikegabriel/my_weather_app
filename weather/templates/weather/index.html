@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/cerulean/bootstrap.min.css" integrity="sha512-lojUNdOGZXJLeNdWWK4EcsIw7nnpRdi/KQGxKDNNGToPERJzztZlyQ6E/wUvuoNbc1M0TuBiNVBTLxU29zep9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+    <title>Weather</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'weather' %}"> <h1 style="color: black;">Weather</h1></a>
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item active">
+                  <a class="nav-link about" href="{% url 'api' %}">About</a>
+                </li>
+          </nav>
+  
+    </header>
+    <main>
+        {% block content %}
+        <form class="search" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="city" placeholder="Enter Your City/Country" id="inputDefault">
+              </div>
+            <button class="butt" type="submit">Search</button>
+        </form>
+
+        <div class="box">
+            {% if country_code and coordinate and temp and pressure and humidity %}
+            
+            <h4><strong>Country</strong>: {{country_code}}</h4>
+            <h4><strong>Coordinates[x,y]</strong>: {{coordinate}} </h4>
+            <h4><strong>Temp</strong>: {{temp}}<sup>o</sup>c</h4>
+            <h4><strong>Pressure</strong>: {{pressure}}Pa</h4>
+            <h4><strong>Humidity</strong>: {{humidity}}</h4>
+            <h4><strong>Forecast</strong>:  <span>{{main}} <img src="https://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width: 70px;"></span></h4>
+            {% else %}
+            <h3 class="invalid">If your City isn't available, try the closest City to it.</h3>
+            {% endif %}
+        </div>
+        
+        
+
+        {% endblock %}
+    </main>
+</body>
+</html>

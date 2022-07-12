@@ -1,0 +1,117 @@
+body{
+    background-color: #000000;
+    font-family: monospace;
+}
+main{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000000;
+    
+}
+.about{
+    padding: 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px rgb(155, 150, 150);
+}
+.search{
+    width: 500px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+    animation: wiggle 2s linear;
+    animation-iteration-count: 3;
+    animation-delay: 4s;
+}
+@keyframes wiggle{
+    
+      0%, 7%  {transform: rotateZ(0);
+      }
+      15% {
+        transform: rotateZ(-15deg);
+      }
+      20% {
+        transform: rotateZ(10deg);
+      }
+      25% {
+        transform: rotateZ(-10deg);
+      }
+      30% {
+        transform: rotateZ(6deg);
+      }
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      40%, 100% {
+        transform: rotateZ(0);
+      }
+    
+}
+.search:hover{
+    box-shadow: 0px 0px 15px 15px rgb(155, 150, 150);
+    transition: 0.5s;
+    animation-play-state: paused;
+}
+.search input{
+    border: 2px solid #000000;
+}
+.butt{
+    border-radius: 4px;
+    padding: 5px;
+    border: none;
+    display: block;
+    text-align: center;
+    margin: auto;
+    border: 2px solid black;
+}
+.butt:hover{
+    background-color: black;
+    color: white
+}
+.box{
+    width: 500px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+.box:hover{
+    box-shadow: 0px 0px 15px 15px rgb(155, 150, 150);
+    transition: 0.5s;
+}
+.box h4{
+    padding: 5px;
+    border-bottom: 2px solid black;
+    border-radius: 5px;
+    color: #000000;
+}
+.invalid{
+    color: #000000;
+    text-align: center;
+    animation: mymove 3s;
+    animation-iteration-count: 2;
+}
+
+@keyframes mymove {
+  from {top: 0px;}
+  to {top: 200px;}
+}
+
+
+@media screen and (max-width:600px){
+    .box, .search{
+        width: 100%;
+        margin:auto;
+        padding: 10px;
+        margin-top: 50px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 3px 3px rgb(255, 255, 255);
+        
+    }
+    .btn{
+        display: block;
+    }
+}
