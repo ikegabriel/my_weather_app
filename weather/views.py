@@ -1,12 +1,19 @@
+import os
+from dotenv import load_dotenv
 from django.shortcuts import render
 import urllib.request
 import json
 # Create your views here.
+
+def configure():
+    load_dotenv()
+
+
 def index(request):
     if request.method == 'POST':
         try:
             city = request.POST['city']
-            source = urllib.request.urlopen('https://api.openweathermap.org/data/2.5/weather?q='+ city + f'&units=metric&appid={weather_api_key}').read()
+            source = urllib.request.urlopen('https://api.openweathermap.org/data/2.5/weather?q='+ city + f'&units=metric&appid={os.getenv("weather_api_key")}').read()
 
             list_of_data = json.loads(source)
 
