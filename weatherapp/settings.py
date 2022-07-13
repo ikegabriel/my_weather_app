@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ["https://weathermangab.herokuapp.com"]
+
 ROOT_URLCONF = 'weatherapp.urls'
 
 TEMPLATES = [
